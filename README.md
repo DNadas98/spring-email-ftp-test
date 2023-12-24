@@ -1,10 +1,10 @@
-# email-test-app
-- This project aims to provide simplified examples for secure e-mail sending and FTP file 
+# Java Spring e-mail and FTPS test application
+- This project aims to provide simplified examples for secure e-mail sending and FTPS file 
   upload-download in Java Spring
 - It is intended for learning and testing only, do not use this in production as is
 
 ### Setup & Run
-- Copy `env.txt` and rename to `.env`, modify values (all required)
+- Copy `env.txt` and rename to `.env`, modify the values (all required) and read the additional instructions
 - Run locally from main or with the `docker-compose.yml`
 
 ### E-mail sending examples
@@ -33,7 +33,7 @@
   - The address is the "to" address, "from" is the pre-configured noreply address
   - Example use case: verification codes
 
-### FTP
+### FTPS
 
 #### Upload
 - POST `/api/v1/ftp/upload`
