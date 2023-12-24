@@ -6,11 +6,27 @@ spring:
     multipart:
       max-file-size: 3MB
       max-request-size: 3MB
-  mail:
+  info.mail:
     host: ${EMAIL_HOST}
     port: ${EMAIL_PORT}
-    username: ${EMAIL_USERNAME}
-    password: ${EMAIL_PASSWORD}
+    username: ${EMAIL_INFO_USERNAME}
+    password: ${EMAIL_INFO_PASSWORD}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: ${EMAIL_PORT}
+            class: javax.net.ssl.SSLSocketFactory
+          ssl:
+            enable: true
+            trust: ${EMAIL_HOST}
+          auth: true
+  noreply.mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_NOREPLY_USERNAME}
+    password: ${EMAIL_NOREPLY_PASSWORD}
     protocol: smtp
     properties:
       mail:

@@ -19,13 +19,23 @@ public class MailController {
     this.mailService = mailService;
   }
 
-  @PostMapping
-  public ResponseEntity<?> sendMailRequest(@RequestBody MailRequestDto mailRequest)
+  @PostMapping("/info")
+  public ResponseEntity<?> sendMailFromUserToInfo(@RequestBody MailRequestDto mailRequest)
     throws MailException {
     mailRequest.validate();
-    mailService.sendMail(mailRequest);
+    mailService.sendMailFromUserToInfo(mailRequest);
     return ResponseEntity.status(HttpStatus.OK).body(new MessageResponseDto(
-      String.format("E-mail sent successfully, Sender: %s, Subject: %s", mailRequest.from(),
+      String.format("E-mail sent successfully, Sender: %s, Subject: %s", mailRequest.address(),
+        mailRequest.subject())));
+  }
+
+  @PostMapping("/noreply")
+  public ResponseEntity<?> sendMailFromNoreplyToUser(@RequestBody MailRequestDto mailRequest)
+    throws MailException {
+    mailRequest.validate();
+    mailService.sendMailFromNoreplyToUser(mailRequest);
+    return ResponseEntity.status(HttpStatus.OK).body(new MessageResponseDto(
+      String.format("E-mail sent successfully, Recipient: %s, Subject: %s", mailRequest.address(),
         mailRequest.subject())));
   }
 }

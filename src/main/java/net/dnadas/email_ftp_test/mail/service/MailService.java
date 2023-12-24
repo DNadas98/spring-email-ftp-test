@@ -12,25 +12,41 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MailService {
-  private final JavaMailSender mailSender;
+  private final JavaMailSender infoMailSender;
+  private final String infoEmailAccount;
+  private final JavaMailSender noreplyMailSender;
+  private final String noreplyEmailAccount;
   private final Logger logger;
-  private final String ownEmailAccount;
 
   @Autowired
   public MailService(
-    JavaMailSender mailSender, @Value("${EMAIL_USERNAME}") String ownEmailAccount) {
-    this.mailSender = mailSender;
-    this.ownEmailAccount = ownEmailAccount;
+    JavaMailSender infoMailSender, @Value("${EMAIL_INFO_USERNAME}") String infoEmailAccount,
+    JavaMailSender noreplyMailSender,
+    @Value("${EMAIL_NOREPLY_USERNAME}") String noreplyEmailAccount) {
+    this.infoMailSender = infoMailSender;
+    this.noreplyMailSender = noreplyMailSender;
+    this.infoEmailAccount = infoEmailAccount;
+    this.noreplyEmailAccount = noreplyEmailAccount;
     this.logger = LoggerFactory.getLogger(this.getClass());
   }
 
-  public void sendMail(MailRequestDto mailRequest) throws MailException {
+  public void sendMailFromUserToInfo(MailRequestDto mailRequest) throws MailException {
     logger.info(mailRequest.toString());
     SimpleMailMessage message = new SimpleMailMessage();
-    message.setFrom(mailRequest.from());
-    message.setTo(ownEmailAccount);
+    message.setFrom(mailRequest.address());
+    message.setTo(infoEmailAccount);
     message.setSubject(mailRequest.subject());
     message.setText(mailRequest.content());
-    mailSender.send(message);
+    infoMailSender.send(message);
+  }
+
+  public void sendMailFromNoreplyToUser(MailRequestDto mailRequest) throws MailException {
+    logger.info(mailRequest.toString());
+    SimpleMailMessage message = new SimpleMailMessage();
+    message.setTo(mailRequest.address());
+    message.setFrom(noreplyEmailAccount);
+    message.setSubject(mailRequest.subject());
+    message.setText(mailRequest.content());
+    noreplyMailSender.send(message);
   }
 }

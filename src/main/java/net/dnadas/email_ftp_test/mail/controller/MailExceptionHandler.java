@@ -2,7 +2,7 @@ package net.dnadas.email_ftp_test.mail.controller;
 
 import net.dnadas.email_ftp_test.common.controller.dto.ErrorResponseDto;
 import net.dnadas.email_ftp_test.mail.exception.MailContentFormatException;
-import net.dnadas.email_ftp_test.mail.exception.MailSenderFormatException;
+import net.dnadas.email_ftp_test.mail.exception.MailAddressFormatException;
 import net.dnadas.email_ftp_test.mail.exception.MailSubjectFormatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,9 +47,9 @@ public class MailExceptionHandler {
       new ErrorResponseDto("Failed to send e-mail"));
   }
 
-  @ExceptionHandler(MailSenderFormatException.class)
-  public ResponseEntity<?> senderFormatExceptionHandler() {
-    String error = "Invalid sender e-mail address format";
+  @ExceptionHandler(MailAddressFormatException.class)
+  public ResponseEntity<?> addressFormatExceptionHandler() {
+    String error = "Invalid e-mail address format";
     logger.error(error);
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponseDto(error));
   }
