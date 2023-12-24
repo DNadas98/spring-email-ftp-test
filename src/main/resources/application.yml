@@ -1,0 +1,25 @@
+server:
+  port: ${APP_PORT}
+
+spring:
+  mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: ${EMAIL_PORT}
+            class: javax.net.ssl.SSLSocketFactory
+          ssl:
+            enable: true
+            trust: ${EMAIL_HOST}
+          auth: true
+
+logging:
+  level:
+    com.dnadas.mailtestapp.mail.controller: trace
+    org.springframework.mail: trace
