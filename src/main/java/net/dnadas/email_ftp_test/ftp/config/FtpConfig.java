@@ -1,6 +1,6 @@
 package net.dnadas.email_ftp_test.ftp.config;
 
-import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPSClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +49,7 @@ public class FtpConfig {
     factory.setControlEncoding("UTF-8");
     factory.setUsername(ftpUsername);
     factory.setPassword(ftpPassword);
-    factory.setClientMode(FTPClient.PASSIVE_LOCAL_DATA_CONNECTION_MODE);
+    factory.setClientMode(FTPSClient.PASSIVE_LOCAL_DATA_CONNECTION_MODE);
     factory.setConnectTimeout(60000);
   }
 }
