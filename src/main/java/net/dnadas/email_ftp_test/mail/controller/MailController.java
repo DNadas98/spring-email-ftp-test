@@ -1,8 +1,8 @@
-package com.dnadas.mailtestapp.mail.controller;
+package net.dnadas.email_ftp_test.mail.controller;
 
-import com.dnadas.mailtestapp.common.controller.dto.MessageResponseDto;
-import com.dnadas.mailtestapp.mail.controller.dto.MailRequestDto;
-import com.dnadas.mailtestapp.mail.service.MailService;
+import net.dnadas.email_ftp_test.common.controller.dto.MessageResponseDto;
+import net.dnadas.email_ftp_test.mail.controller.dto.MailRequestDto;
+import net.dnadas.email_ftp_test.mail.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +20,12 @@ public class MailController {
   }
 
   @PostMapping
-  public ResponseEntity<?> sendMailRequest(@RequestBody MailRequestDto emailRequest)
+  public ResponseEntity<?> sendMailRequest(@RequestBody MailRequestDto mailRequest)
     throws MailException {
-    emailRequest.validate();
-    mailService.sendMail(emailRequest);
+    mailRequest.validate();
+    mailService.sendMail(mailRequest);
     return ResponseEntity.status(HttpStatus.OK).body(new MessageResponseDto(
-      String.format("Email sent successfully, Sender: %s, Subject: %s", emailRequest.from(),
-        emailRequest.subject())));
+      String.format("E-mail sent successfully, Sender: %s, Subject: %s", mailRequest.from(),
+        mailRequest.subject())));
   }
 }

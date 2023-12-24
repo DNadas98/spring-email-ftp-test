@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  mail:
+  spring_mail_ftp:
     build:
       context: .
       dockerfile: Dockerfile

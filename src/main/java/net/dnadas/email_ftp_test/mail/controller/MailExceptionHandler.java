@@ -1,9 +1,9 @@
-package com.dnadas.mailtestapp.mail.controller;
+package net.dnadas.email_ftp_test.mail.controller;
 
-import com.dnadas.mailtestapp.common.controller.dto.ErrorResponseDto;
-import com.dnadas.mailtestapp.mail.exception.MailContentFormatException;
-import com.dnadas.mailtestapp.mail.exception.MailSenderFormatException;
-import com.dnadas.mailtestapp.mail.exception.MailSubjectFormatException;
+import net.dnadas.email_ftp_test.common.controller.dto.ErrorResponseDto;
+import net.dnadas.email_ftp_test.mail.exception.MailContentFormatException;
+import net.dnadas.email_ftp_test.mail.exception.MailSenderFormatException;
+import net.dnadas.email_ftp_test.mail.exception.MailSubjectFormatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import org.springframework.mail.MailSendException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
+@ControllerAdvice(basePackages = "net.dnadas.email_ftp_test.mail")
 public class MailExceptionHandler {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

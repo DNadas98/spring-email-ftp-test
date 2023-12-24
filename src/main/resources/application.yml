@@ -2,6 +2,10 @@ server:
   port: ${APP_PORT}
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
   mail:
     host: ${EMAIL_HOST}
     port: ${EMAIL_PORT}
@@ -21,5 +25,7 @@ spring:
 
 logging:
   level:
-    com.dnadas.mailtestapp.mail.controller: trace
+    com.dnadas.email_ftp_test.mail.controller: trace
     org.springframework.mail: trace
+    org.springframework.integration: trace
+    org.apache.commons.net: trace

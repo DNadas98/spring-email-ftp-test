@@ -1,4 +1,4 @@
-package com.dnadas.mailtestapp.config;
+package net.dnadas.email_ftp_test.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;

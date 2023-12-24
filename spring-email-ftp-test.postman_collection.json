@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "13661e8b-8f14-47f6-a58a-b34842921907",
+		"name": "spring-email-ftp-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30693601"
+	},
+	"item": [
+		{
+			"name": "mail",
+			"item": [
+				{
+					"name": "sendMailRequest",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from\": \"daniel.nadas.123@gmail.com\",\n    \"subject\": \"Test 1\",\n    \"content\": \"Test 1 text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/mail",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"mail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ftp",
+			"item": [
+				{
+					"name": "uploadFile",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "tatra random image",
+									"type": "file",
+									"src": "/home/dani/Pictures/tátra7-rysy.jpg"
+								},
+								{
+									"key": "remotePath",
+									"value": "tatra.jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/ftp/upload",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ftp",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "downloadFile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/ftp/download?remotePath=tatra.jpg",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ftp",
+								"download"
+							],
+							"query": [
+								{
+									"key": "remotePath",
+									"value": "tatra.jpg"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5000/api/v1",
+			"type": "string"
+		}
+	]
+}

@@ -10,7 +10,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.dnadas</groupId>
-  <artifactId>mail-test-app</artifactId>
+  <artifactId>spring-email-ftp-test</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>email-test-app</name>
   <description>email-test-app</description>
@@ -21,6 +21,10 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.integration</groupId>
+      <artifactId>spring-integration-ftp</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

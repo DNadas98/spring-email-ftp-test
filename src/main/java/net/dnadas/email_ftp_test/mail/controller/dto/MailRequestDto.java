@@ -1,8 +1,8 @@
-package com.dnadas.mailtestapp.mail.controller.dto;
+package net.dnadas.email_ftp_test.mail.controller.dto;
 
-import com.dnadas.mailtestapp.mail.exception.MailContentFormatException;
-import com.dnadas.mailtestapp.mail.exception.MailSenderFormatException;
-import com.dnadas.mailtestapp.mail.exception.MailSubjectFormatException;
+import net.dnadas.email_ftp_test.mail.exception.MailContentFormatException;
+import net.dnadas.email_ftp_test.mail.exception.MailSenderFormatException;
+import net.dnadas.email_ftp_test.mail.exception.MailSubjectFormatException;
 
 import java.util.regex.Pattern;
 

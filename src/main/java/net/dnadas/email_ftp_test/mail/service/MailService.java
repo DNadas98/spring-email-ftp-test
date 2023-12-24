@@ -1,6 +1,6 @@
-package com.dnadas.mailtestapp.mail.service;
+package net.dnadas.email_ftp_test.mail.service;
 
-import com.dnadas.mailtestapp.mail.controller.dto.MailRequestDto;
+import net.dnadas.email_ftp_test.mail.controller.dto.MailRequestDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +24,13 @@ public class MailService {
     this.logger = LoggerFactory.getLogger(this.getClass());
   }
 
-  public void sendMail(MailRequestDto emailRequest) throws MailException {
-    logger.info(emailRequest.toString());
+  public void sendMail(MailRequestDto mailRequest) throws MailException {
+    logger.info(mailRequest.toString());
     SimpleMailMessage message = new SimpleMailMessage();
-    message.setFrom(emailRequest.from());
+    message.setFrom(mailRequest.from());
     message.setTo(ownEmailAccount);
-    message.setSubject(emailRequest.subject());
-    message.setText(emailRequest.content());
+    message.setSubject(mailRequest.subject());
+    message.setText(mailRequest.content());
     mailSender.send(message);
   }
 }
