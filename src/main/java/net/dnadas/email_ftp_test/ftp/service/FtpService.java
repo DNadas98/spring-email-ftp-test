@@ -3,18 +3,20 @@ package net.dnadas.email_ftp_test.ftp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
-import org.springframework.integration.ftp.session.DefaultFtpSessionFactory;
+import org.springframework.integration.ftp.session.AbstractFtpSessionFactory;
 import org.springframework.integration.ftp.session.FtpSession;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 @Service
 public class FtpService {
-  private final DefaultFtpSessionFactory sessionFactory;
+  private final AbstractFtpSessionFactory sessionFactory;
 
   @Autowired
-  public FtpService(DefaultFtpSessionFactory sessionFactory) {
+  public FtpService(AbstractFtpSessionFactory sessionFactory) {
     this.sessionFactory = sessionFactory;
   }
 
