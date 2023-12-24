@@ -10,7 +10,7 @@
 			"name": "mail",
 			"item": [
 				{
-					"name": "sendMailRequest",
+					"name": "sendMailFromUserToInfo",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {}
 					},
@@ -19,7 +19,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"from\": \"daniel.nadas.123@gmail.com\",\n    \"subject\": \"Test 1\",\n    \"content\": \"Test 1 text\"\n}",
+							"raw": "{\n    \"address\": \"daniel.nadas.123@gmail.com\",\n    \"subject\": \"Test 1\",\n    \"content\": \"Test 1 text\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -27,12 +27,43 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/mail",
+							"raw": "{{BASE_URL}}/mail/info",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"mail"
+								"mail",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendMailFromNoreplyToUser",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"daniel.nadas.123@gmail.com\",\n    \"subject\": \"Test 1\",\n    \"content\": \"Test 1 text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/mail/noreply",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"mail",
+								"noreply"
 							]
 						}
 					},
