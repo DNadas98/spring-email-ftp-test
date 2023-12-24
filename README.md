@@ -35,7 +35,20 @@
 
 ### FTP
 
-	@@ -40,4 +52,4 @@
+#### Upload
+- POST `/api/v1/ftp/upload`
+  - Parameters:
+    - `file`: MultipartFile
+      - required
+    - `remotePath`: String
+      - full path from the ftp users root, including the filename and extension
+      - required
+  - Example: Form with `file` as the file input field and `remotePath` as a text input field.
+
+#### Download
+- GET `/api/v1/ftp/download?remotePath=`
+  - Parameter:
+    - `remotePath`: String
       - full path from the ftp users root, including filename and extension
       - required
   - File sent as a downloadable attachment
