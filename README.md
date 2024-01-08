@@ -1,4 +1,4 @@
-# Java Spring e-mail and FTPS API
+# Java Spring E-mail and FTPS API
 This project aims to provide the core structure required for secure e-mail sending and FTPS file transfer in Java Spring. Customized with credentials and application specific requirements, it can be used as a mail sender or FTP microservice. The project is based on the Integration framework of Java Spring, it contains all configurations required to create an authenticated, secure, TLS-encrypted connection to an SMTP and an FTP server, send e-mails and transfer files.
 - It is intended for a core structure only, do not use this in production as is
 
