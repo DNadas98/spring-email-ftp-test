@@ -1,4 +1,4 @@
-# Java Spring e-mail and FTPS test application
+# Java Spring e-mail and FTPS API
 - This project aims to provide simplified examples for secure e-mail sending and FTPS file 
   upload-download in Java Spring
 - It is intended for learning and testing only, do not use this in production as is
